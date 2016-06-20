@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:layout_marginBottom="4dp"
+  android:layout_marginLeft="4dp"
+  android:layout_marginRight="4dp"
+  android:layout_marginTop="4dp"
+  android:paddingTop="16dp"
+  android:paddingBottom="16dp"
+  android:clickable="true"
+  android:focusable="true"
+  android:foreground="?selectableItemBackground">
+
+  <RelativeLayout
+    android:layout_width="0dp"
+    android:layout_weight="3"
+    android:layout_height="wrap_content"
+    android:paddingLeft="16dp">
+
+    <TextView
+      android:id="@+id/article_title"
+      style="@style/TextAppearance.AppCompat.Subhead"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:ellipsize="end"
+      android:maxLines="4"
+      android:text="Busy streets are still busy, even if you don't want them to be"
+      android:paddingBottom="8dp"
+      android:textSize="20sp"
+      android:layout_alignParentStart="true"/>
+
+    <TextView
+      android:id="@+id/article_author"
+      style="@style/TextAppearance.AppCompat.Body1"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_below="@id/article_title"
+      android:ellipsize="end"
+      android:maxLines="1"
+      android:singleLine="true"
+      android:paddingBottom="2dp"
+      android:textSize="14sp"
+      android:text="by Thomas Jefferson"/>
+
+    <TextView
+      android:id="@+id/article_date"
+      style="@style/TextAppearance.AppCompat.Body1"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_below="@id/article_author"
+      android:ellipsize="end"
+      android:maxLines="1"
+      android:singleLine="true"
+      android:textColor="@color/gray_700"
+      android:textSize="14sp"
+      android:text="July 4, 1776"/>
+
+</RelativeLayout>
+
+
+  <ImageView
+    android:id="@+id/thumbnail"
+    android:layout_width="120dp"
+    android:layout_height="100dp"
+    android:layout_marginLeft="4dp"
+    android:adjustViewBounds="true"
+    android:scaleType="fitStart"
+    android:background="@color/photo_placeholder"/>
+
+
+  <!--suppress AndroidLintContentDescription -->
+
+  <!--
+  <com.example.xyzreader.ui.DynamicHeightNetworkImageView
+    android:id="@+id/thumbnail"
+    android:layout_width="120dp"
+    android:layout_height="100dp"
+    android:layout_marginLeft="4dp"
+    android:layout_marginRight="4dp"
+    android:paddingBottom="4dp"
+    android:paddingRight="4dp"
+    android:paddingLeft="4dp"
+    android:background="@color/photo_placeholder"/>
+
+  -->
+
+</LinearLayout>
