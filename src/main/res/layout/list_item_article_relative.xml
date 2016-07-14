@@ -62,8 +62,8 @@
 
   <ImageView
     android:id="@+id/thumbnail"
-    android:layout_width="120dp"
-    android:layout_height="100dp"
+    android:layout_width="150dp"
+    android:layout_height="150dp"
     android:layout_marginLeft="4dp"
     android:adjustViewBounds="true"
     android:scaleType="fitStart"

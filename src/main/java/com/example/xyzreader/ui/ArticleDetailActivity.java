@@ -9,12 +9,17 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v13.app.FragmentStatePagerAdapter;
+import android.support.v4.app.NavUtils;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.util.TypedValue;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowInsets;
+import android.widget.Toast;
 
 import com.example.xyzreader.R;
 import com.example.xyzreader.data.ArticleLoader;
@@ -27,17 +32,20 @@ import com.example.xyzreader.data.ItemsContract;
 public class ArticleDetailActivity extends AppCompatActivity
   implements LoaderManager.LoaderCallbacks<Cursor> {
 
-  private Cursor mCursor;
-  private long mStartId;
+  private static final String LOG_TAG
+    = ArticleDetailActivity.class.getSimpleName();
 
+  private ViewPager mPager;
+  private View mUpButtonContainer;
+  private View mUpButton;
+
+  private MyPagerAdapter mPagerAdapter;
+  private Cursor mCursor;
+
+  private long mStartId;
   private long mSelectedItemId;
   private int mSelectedItemUpButtonFloor = Integer.MAX_VALUE;
   private int mTopInset;
-
-  private ViewPager mPager;
-  private MyPagerAdapter mPagerAdapter;
-  private View mUpButtonContainer;
-  private View mUpButton;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +62,6 @@ public class ArticleDetailActivity extends AppCompatActivity
 
     mPagerAdapter = new MyPagerAdapter(getFragmentManager());
     mPager = (ViewPager) findViewById(R.id.pager);
-
     mPager.setAdapter(mPagerAdapter);
     mPager.setPageMargin((int) TypedValue.applyDimension(
       TypedValue.COMPLEX_UNIT_DIP,
@@ -83,6 +90,8 @@ public class ArticleDetailActivity extends AppCompatActivity
       }
     });
 
+
+    /*
     mUpButtonContainer = findViewById(R.id.up_container);
 
     mUpButton = findViewById(R.id.action_up);
@@ -108,6 +117,7 @@ public class ArticleDetailActivity extends AppCompatActivity
         }
       });
     }
+    */
 
     if (savedInstanceState == null) {
       if (getIntent() != null && getIntent().getData() != null) {
@@ -144,6 +154,17 @@ public class ArticleDetailActivity extends AppCompatActivity
   }
 
   @Override
+  public boolean onOptionsItemSelected(MenuItem item) {
+    switch (item.getItemId()) {
+      // Respond to the action bar's Up/Home button
+      case android.R.id.home:
+        NavUtils.navigateUpFromSameTask(this);
+        return true;
+    }
+    return super.onOptionsItemSelected(item);
+  }
+
+  @Override
   public void onLoaderReset(Loader<Cursor> cursorLoader) {
     mCursor = null;
     mPagerAdapter.notifyDataSetChanged();
@@ -158,10 +179,12 @@ public class ArticleDetailActivity extends AppCompatActivity
   }
 
   private void updateUpButtonPosition() {
+    /*
     int upButtonNormalBottom = mTopInset + mUpButton.getHeight();
     mUpButton.setTranslationY(
       Math.min(mSelectedItemUpButtonFloor - upButtonNormalBottom, 0)
     );
+    */
   }
 
   private class MyPagerAdapter extends FragmentStatePagerAdapter {

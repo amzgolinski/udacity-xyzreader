@@ -190,7 +190,7 @@ public class ArticleListActivity extends AppCompatActivity implements
       ).toString();
 
       String author = getResources().getString(
-        R.string.item_author,
+        R.string.article_author,
         mCursor.getString(ArticleLoader.Query.AUTHOR));
 
       holder.author.setText(author);
