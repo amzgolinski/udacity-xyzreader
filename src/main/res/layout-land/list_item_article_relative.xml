@@ -16,9 +16,10 @@
   <RelativeLayout
       android:layout_width="0dp"
       android:layout_height="wrap_content"
-      android:layout_weight="3"
-      android:paddingEnd="@dimen/list_item_horiz_padding"
-      android:paddingStart="@dimen/list_item_horiz_padding">
+      android:layout_weight="2"
+      android:paddingEnd="72dp"
+      android:paddingStart="@dimen/list_item_horiz_padding"
+      android:gravity="right">
 
     <TextView
         android:id="@+id/article_title"
@@ -28,38 +29,49 @@
         android:layout_alignParentStart="true"
         android:ellipsize="end"
         android:maxLines="2"
-        android:paddingBottom="8dp"
-        android:text="Busy streets are still busy, even if you don't want them to be"
+        android:paddingBottom="4dp"
+        android:text="Mysteries of the Universe Solved"
         android:textColor="@android:color/black"
-        android:textSize="16sp"/>
-
-    <TextView
-        android:id="@+id/article_author"
-        style="@style/list_entry"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/article_title"
-        android:text="by Thomas Jefferson"
-        android:textStyle="italic"/>
+        android:textSize="20sp"/>
 
     <TextView
         android:id="@+id/article_date"
         style="@style/list_entry"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/article_author"
+        android:layout_below="@id/article_title"
         android:text="July 4, 1776"/>
+
+    <TextView
+        android:id="@+id/article_author"
+        style="@style/list_entry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/article_title"
+        android:layout_toEndOf="@+id/article_date"
+        android:layout_marginLeft="4dp"
+        android:text="by Thomas Jefferson"
+        android:textStyle="italic"/>
+
 
   </RelativeLayout>
 
-  <ImageView
-      android:id="@+id/thumbnail"
-      android:layout_width="0dp"
-      android:layout_height="75dp"
-      android:layout_marginStart="4dp"
-      android:layout_weight="1"
-      android:adjustViewBounds="true"
-      android:background="@android:color/black"
-      android:scaleType="fitCenter"/>
+  <RelativeLayout android:layout_width="0dp"
+                  android:layout_height="match_parent"
+    android:layout_weight="1"
+    android:gravity="left">
+
+    <ImageView
+        android:id="@+id/thumbnail"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="4dp"
+        android:background="@android:color/black"
+        android:layout_weight="1"
+        android:adjustViewBounds="true"
+        android:scaleType="fitStart"/>
+
+  </RelativeLayout>
+
 
 </LinearLayout>

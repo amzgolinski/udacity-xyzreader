@@ -120,6 +120,7 @@ public class ArticleDetailFragment extends Fragment implements
       container,
       false);
 
+    /*
     mDrawInsetsFrameLayout = (DrawInsetsFrameLayout)
       mRootView.findViewById(R.id.draw_insets_frame_layout);
 
@@ -130,18 +131,19 @@ public class ArticleDetailFragment extends Fragment implements
           mTopInset = insets.top;
         }
     });
+    */
 
     mScrollView =
       (NestedScrollView) mRootView.findViewById(R.id.scrollview);
 
     // Find the toolbar view inside the activity layout
-    final Toolbar toolbar = (Toolbar) mRootView.findViewById(R.id.app_bar);
+    Toolbar toolbar = (Toolbar) mRootView.findViewById(R.id.app_bar);
     if (toolbar != null) {
       Log.d(LOG_TAG, "Toolbar is not null");
       toolbar.setNavigationOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-          Toast.makeText(toolbar.getContext(), "Back", Toast.LENGTH_LONG).show();
+          //Toast.makeText(getContext(), "Back", Toast.LENGTH_LONG).show();
           getActivity().onBackPressed();
         }
       });
@@ -182,12 +184,11 @@ public class ArticleDetailFragment extends Fragment implements
     });
 
     bindViews();
-    //updateStatusBar();
     return mRootView;
   }
 
   private void updateStatusBar() {
-
+    /*
     int color = 0;
     if (mPhotoView != null && mTopInset != 0 && mScrollY > 0) {
       float f = progress(mScrollY,
@@ -201,6 +202,7 @@ public class ArticleDetailFragment extends Fragment implements
     }
     mStatusBarColorDrawable.setColor(color);
     mDrawInsetsFrameLayout.setInsetBackground(mStatusBarColorDrawable);
+    */
 
   }
 
@@ -225,8 +227,10 @@ public class ArticleDetailFragment extends Fragment implements
     }
 
     TextView titleView = (TextView) mRootView.findViewById(R.id.article_title);
-    TextView bylineView =
-      (TextView) mRootView.findViewById(R.id.article_byline);
+    TextView dateView = (TextView) mRootView.findViewById(R.id.article_date);
+    TextView authorView
+        = (TextView) mRootView.findViewById(R.id.article_author);
+
     TextView bodyView = (TextView) mRootView.findViewById(R.id.article_body);
 
     /*
@@ -241,6 +245,7 @@ public class ArticleDetailFragment extends Fragment implements
     */
 
     if (mCursor != null) {
+
       mRootView.setAlpha(0);
       mRootView.setVisibility(View.VISIBLE);
       mRootView.animate().alpha(1);
@@ -254,12 +259,10 @@ public class ArticleDetailFragment extends Fragment implements
         DateUtils.FORMAT_ABBREV_ALL
       ).toString();
 
-      String author = mCursor.getString(ArticleLoader.Query.AUTHOR);
+      dateView.setText(String.format(
+          getResources().getString(R.string.article_date), date));
 
-      bylineView.setText(
-        String.format(
-          getResources().getString(R.string.article_byline), date, author));
-
+      authorView.setText(mCursor.getString(ArticleLoader.Query.AUTHOR));
 
       /*
       bylineView.setText(Html.fromHtml(
@@ -271,9 +274,9 @@ public class ArticleDetailFragment extends Fragment implements
           + mCursor.getString(ArticleLoader.Query.AUTHOR)
           + "</font>"));
       */
+
       bodyView.setText(
-        Html.fromHtml(mCursor.getString(ArticleLoader.Query.BODY))
-      );
+        Html.fromHtml(mCursor.getString(ArticleLoader.Query.BODY)));
 
       ImageLoaderHelper.getInstance(getActivity()).getImageLoader().get(
         mCursor.getString(ArticleLoader.Query.PHOTO_URL),
@@ -286,13 +289,10 @@ public class ArticleDetailFragment extends Fragment implements
               Palette p = Palette.generate(bitmap, 12);
               mMutedColor = p.getDarkMutedColor(0xFF333333);
               mPhotoView.setImageBitmap(imageContainer.getBitmap());
-              /*
-              mRootView.findViewById(R.id.meta_bar)
-                .setBackgroundColor(mMutedColor);
-
-
+              mRootView.findViewById(R.id.article_header)
+                  .setBackgroundColor(mMutedColor);
               updateStatusBar();
-              */
+
             }
           }
 
@@ -303,9 +303,6 @@ public class ArticleDetailFragment extends Fragment implements
         });
     } else {
       mRootView.setVisibility(View.GONE);
-      //titleView.setText("N/A");
-      //bylineView.setText("N/A");
-      //bodyView.setText("N/A");
     }
   }
 
