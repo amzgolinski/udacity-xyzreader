@@ -1,5 +1,7 @@
 package com.example.xyzreader.ui;
 
+import android.app.Activity;
+import android.app.ActivityOptions;
 import android.app.LoaderManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -14,12 +16,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.text.format.DateUtils;
 import android.util.Log;
-import android.util.TypedValue;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -74,8 +73,6 @@ public class ArticleListActivity extends AppCompatActivity implements
 
     mToolbar = (Toolbar) findViewById(R.id.toolbar);
 
-    final View toolbarContainerView = findViewById(R.id.toolbar_container);
-
     mSwipeRefreshLayout =
       (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout);
 
@@ -98,22 +95,19 @@ public class ArticleListActivity extends AppCompatActivity implements
     Adapter adapter = new Adapter(cursor, this);
     adapter.setHasStableIds(true);
     mRecyclerView.setAdapter(adapter);
-    /*
-    int columnCount = getResources().getInteger(R.integer.list_column_count);
-    StaggeredGridLayoutManager sglm = new StaggeredGridLayoutManager(
-      columnCount,
-      StaggeredGridLayoutManager.VERTICAL
-    );
-    mRecyclerView.setLayoutManager(sglm);
-    */
+
     RecyclerView.LayoutManager mLayoutManager =
       new LinearLayoutManager(getApplicationContext());
+
     mRecyclerView.setLayoutManager(mLayoutManager);
     mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+
     Drawable separator = getResources()
       .getDrawable(R.drawable.padded_divider, getTheme());
+
     mRecyclerView.addItemDecoration(
-      new DividerItemDecoration(this, separator, LinearLayoutManager.VERTICAL));
+      new DividerItemDecoration(this, separator, LinearLayoutManager.VERTICAL)
+    );
   }
 
   @Override
@@ -160,17 +154,33 @@ public class ArticleListActivity extends AppCompatActivity implements
     }
 
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-      View view = getLayoutInflater()
-        .inflate(R.layout.list_item_article_relative, parent, false);
+    public ViewHolder onCreateViewHolder(final ViewGroup parent, int viewType) {
+
+      View view = getLayoutInflater().inflate(
+        R.layout.list_item_article_relative,
+        parent,
+        false
+      );
 
       final ViewHolder viewHolder = new ViewHolder(view);
+      final Activity activity = (Activity) mContext;
+
+
       view.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-          startActivity(new Intent(Intent.ACTION_VIEW,
+
+          Intent intent = new Intent(Intent.ACTION_VIEW,
             ItemsContract.Items.buildItemUri(
-              getItemId(viewHolder.getAdapterPosition()))));
+              getItemId(viewHolder.getAdapterPosition())));
+
+          Bundle transition = ActivityOptions.makeSceneTransitionAnimation(
+            activity,
+            viewHolder.thumbnailView,
+            "image")
+            .toBundle();
+
+          startActivity(intent, transition);
         }
       });
       return viewHolder;
@@ -191,19 +201,11 @@ public class ArticleListActivity extends AppCompatActivity implements
 
       String author = getResources().getString(
         R.string.article_author,
-        mCursor.getString(ArticleLoader.Query.AUTHOR));
+        mCursor.getString(ArticleLoader.Query.AUTHOR)
+      );
 
       holder.author.setText(author);
       holder.date.setText(date);
-
-      /*
-      holder.thumbnailView.setImageUrl(
-        mCursor.getString(ArticleLoader.Query.THUMB_URL),
-        ImageLoaderHelper.getInstance(ArticleListActivity.this).getImageLoader());
-
-      holder.thumbnailView.setAspectRatio(mCursor.getFloat(ArticleLoader.Query.ASPECT_RATIO));
-      */
-
 
       Picasso.with(mContext)
         .load(mCursor.getString(ArticleLoader.Query.THUMB_URL))

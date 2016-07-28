@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-  <!-- FAB -->
-  <dimen name="fab_margin">24dp</dimen>
+  <!-- app bar height -->
+  <dimen name="detail_app_bar_height">200dp</dimen>
 
   <!-- article -->
-  <dimen name="article_app_bar_height">200dp</dimen>
-  <dimen name="article_text_size">18sp</dimen>
-  <dimen name="article_title_text_size">32sp</dimen>
+  <dimen name="article_text_size">24dp</dimen>
+  <dimen name="article_title_text_size">40sp</dimen>
   <dimen name="article_title_padding_bottom">4dp</dimen>
   <dimen name="article_title_padding_top">8dp</dimen>
 
@@ -15,6 +14,5 @@
   <dimen name="list_entry_title_size">24sp</dimen>
   <dimen name="list_entry_subtitle_size">16sp</dimen>
   <dimen name="list_entry_title_padding">6dp</dimen>
-  <dimen name="list_entry_margin_start">4dp</dimen>
 
 </resources>

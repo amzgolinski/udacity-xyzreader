@@ -1,39 +1,90 @@
 <resources>
 
-
-  <!--
-  <style name="Theme.Bacon" parent="@style/Theme.AppCompat.Light.NoActionBar">
-  </style>
-
-  <style name="Theme.Bacon.Detail">
-      <item name="android:statusBarColor">@android:color/transparent</item>
-  </style>
-  -->
-
   <style name="Theme.XYZReader.Light" parent="Theme.AppCompat.Light.NoActionBar">
     <item name="colorPrimary">@color/primary</item>
     <item name="colorPrimaryDark">@color/primary_dark</item>
     <item name="colorAccent">@color/accent</item>
+    <item name="android:windowExitTransition">
+      @transition/list_exit
+    </item>
+    <item name="android:windowContentTransitions">true</item>
+    <item name="android:windowSharedElementEnterTransition">
+      @transition/change_image_transform
+    </item>
+  </style>
+
+  <style name="list_entry_title">
+    <item name="android:textSize">@dimen/list_entry_title_size</item>
+    <item name="android:textColor">@android:color/black</item>
+    <item name="android:paddingBottom">@dimen/list_entry_title_padding</item>
   </style>
 
   <style name="list_entry">
-    <item name="android:textSize">14sp</item>
+    <item name="android:textSize">@dimen/list_entry_subtitle_size</item>
     <item name="android:textColor">@color/gray_700</item>
   </style>
 
-  <!--
-
-  <style name="XYZTheme" parent="Theme.AppCompat">
-
-    <item name="colorPrimary">@color/primary</item>
-
-    <item name="colorPrimaryDark">@color/primary_dark</item>
-
-    <item name="colorAccent">@color/accent</item>
-
-    <item name="android:statusBarColor">@android:color/transparent</item>
-
+  <style name="list_entry_author" parent="list_entry">
+    <item name="android:textStyle">italic|bold</item>
   </style>
-  -->
+
+  <style name="article_header">
+    <item name="android:layout_gravity">bottom</item>
+    <item name="android:layout_marginBottom">
+      @dimen/article_heading_padding_bottom
+    </item>
+    <item name="android:background">@color/gray_800</item>
+    <item name="android:paddingEnd">@dimen/article_inner_horiz_margin</item>
+    <item name="android:paddingStart">@dimen/article_inner_horiz_margin</item>
+    <item name="android:paddingTop">@dimen/article_inner_vert_margin</item>
+    <item name="android:paddingBottom">@dimen/article_inner_vert_margin</item>
+  </style>
+
+  <style name="article_title">
+    <item name="android:textSize">@dimen/article_title_text_size</item>
+    <item name="android:textColor">@android:color/white</item>
+    <item name="android:textStyle">bold</item>
+    <item name="android:paddingBottom">
+      @dimen/article_title_padding_bottom
+    </item>
+  </style>
+
+  <style name="article_byline">
+    <item name="android:textSize">@dimen/article_text_size</item>
+    <item name="android:textColor">@android:color/white</item>
+    <item name="android:textStyle">italic</item>
+    <item name="android:layout_marginEnd">
+      @dimen/byline_margin
+    </item>
+  </style>
+
+  <style name="article_author" parent="article_byline">
+    <item name="android:textStyle">bold|italic</item>
+  </style>
+
+  <style name="article_text">
+    <item name="android:layout_marginStart">
+      @dimen/article_inner_horiz_margin
+    </item>
+    <item name="android:layout_marginEnd">
+      @dimen/article_inner_horiz_margin
+    </item>
+
+    <item name="android:paddingBottom">@dimen/article_text_bottom_margin</item>
+    <item name="android:paddingTop">@dimen/article_text_top_margin</item>
+    <item name="android:textSize">@dimen/article_text_size</item>
+    <item name="android:textColor">@color/gray_800</item>
+    <item name="android:textColorLink">@color/accent</item>
+  </style>
+
+  <style name="fab">
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:layout_gravity">bottom|end</item>
+    <item name="android:layout_margin">@dimen/fab_margin</item>
+    <item name="android:contentDescription">@string/action_share</item>
+    <item name="android:src">@drawable/ic_share</item>
+  </style>
+
 
 </resources>

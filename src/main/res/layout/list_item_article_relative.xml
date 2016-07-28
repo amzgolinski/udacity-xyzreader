@@ -2,45 +2,52 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:layout_marginBottom="@dimen/list_item_margin"
-              android:layout_marginLeft="@dimen/list_item_margin"
-              android:layout_marginRight="@dimen/list_item_margin"
-              android:layout_marginTop="@dimen/list_item_margin"
+              android:layout_height="@dimen/list_entry_height"
+              android:layout_marginBottom="@dimen/list_entry_margin_bottom"
               android:clickable="true"
               android:focusable="true"
-              android:foreground="?selectableItemBackground"
-              android:paddingBottom="@dimen/list_item_vert_padding"
+              android:background="?android:attr/selectableItemBackground"
+              android:paddingEnd="@dimen/list_item_horiz_padding"
+              android:paddingStart="@dimen/list_item_horiz_padding"
               android:paddingTop="@dimen/list_item_vert_padding">
 
+  <FrameLayout
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent">
+
+    <ImageView
+      android:id="@+id/thumbnail"
+      android:transitionName="image"
+      android:layout_width="@dimen/image_height"
+      android:layout_height="@dimen/image_width"
+      android:adjustViewBounds="true"
+      android:layout_gravity="start"
+      android:background="@android:color/black"
+      android:scaleType="centerCrop"/>
+
+  </FrameLayout>
+
   <RelativeLayout
-      android:layout_width="0dp"
+      android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_weight="3"
       android:paddingEnd="@dimen/list_item_horiz_padding"
       android:paddingStart="@dimen/list_item_horiz_padding">
 
     <TextView
         android:id="@+id/article_title"
-        style="@style/TextAppearance.AppCompat.Subhead"
+        style="@style/list_entry_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:ellipsize="end"
-        android:maxLines="2"
-        android:paddingBottom="8dp"
-        android:text="Busy streets are still busy, even if you don't want them to be"
-        android:textColor="@android:color/black"
-        android:textSize="16sp"/>
+        android:text="Busy streets are still busy, even if you don't want them to be"/>
 
     <TextView
         android:id="@+id/article_author"
-        style="@style/list_entry"
+        style="@style/list_entry_author"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/article_title"
-        android:text="by Thomas Jefferson"
-        android:textStyle="italic"/>
+        android:text="by Thomas Jefferson"/>
 
     <TextView
         android:id="@+id/article_date"
@@ -52,14 +59,6 @@
 
   </RelativeLayout>
 
-  <ImageView
-      android:id="@+id/thumbnail"
-      android:layout_width="0dp"
-      android:layout_height="75dp"
-      android:layout_marginStart="4dp"
-      android:layout_weight="1"
-      android:adjustViewBounds="true"
-      android:background="@android:color/black"
-      android:scaleType="fitCenter"/>
+
 
 </LinearLayout>

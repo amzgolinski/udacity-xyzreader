@@ -1,0 +1,20 @@
+<resources>
+
+  <style name="list_entry">
+    <item name="android:textSize">@dimen/list_entry_subtitle_size</item>
+    <item name="android:textColor">@color/gray_700</item>
+    <item name="android:layout_marginStart">
+      @dimen/list_entry_margin_start
+    </item>
+  </style>
+
+  <style name="article_title">
+    <item name="android:textSize">@dimen/article_title_text_size</item>
+    <item name="android:textColor">@android:color/white</item>
+    <item name="android:textStyle">bold</item>
+    <item name="android:paddingBottom">
+      @dimen/article_title_padding_bottom
+    </item>
+  </style>
+
+</resources>
