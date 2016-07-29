@@ -13,6 +13,14 @@
     </item>
   </style>
 
+  <style name="image">
+    <item name="android:adjustViewBounds">true</item>
+    <item name="android:layout_gravity">start</item>
+    <item name="android:background">@android:color/black</item>
+    <item name="android:scaleType">centerCrop</item>
+    <item name="android:layout_marginStart">@dimen/image_margin_start</item>
+  </style>
+
   <style name="list_entry_title">
     <item name="android:textSize">@dimen/list_entry_title_size</item>
     <item name="android:textColor">@android:color/black</item>
@@ -22,10 +30,21 @@
   <style name="list_entry">
     <item name="android:textSize">@dimen/list_entry_subtitle_size</item>
     <item name="android:textColor">@color/gray_700</item>
+    <item name="android:layout_marginStart">
+      @dimen/list_entry_margin_start
+    </item>
   </style>
 
   <style name="list_entry_author" parent="list_entry">
     <item name="android:textStyle">italic|bold</item>
+  </style>
+
+  <style name="list">
+    <item name="android:clipToPadding">false</item>
+    <item name="android:paddingLeft">@dimen/list_side_margin</item>
+    <item name="android:paddingRight">@dimen/list_side_margin</item>
+    <item name="android:paddingTop">@dimen/list_padding_top</item>
+    <item name="android:scrollbarStyle">outsideOverlay</item>
   </style>
 
   <style name="article_header">
@@ -54,7 +73,7 @@
     <item name="android:textColor">@android:color/white</item>
     <item name="android:textStyle">italic</item>
     <item name="android:layout_marginEnd">
-      @dimen/byline_margin
+      @dimen/article_byline_margin_end
     </item>
   </style>
 
@@ -85,6 +104,5 @@
     <item name="android:contentDescription">@string/action_share</item>
     <item name="android:src">@drawable/ic_share</item>
   </style>
-
 
 </resources>

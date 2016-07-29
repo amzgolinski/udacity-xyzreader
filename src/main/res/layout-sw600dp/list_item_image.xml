@@ -5,10 +5,8 @@
 
   <ImageView
     android:id="@+id/thumbnail"
+    style="@style/image"
     android:layout_width="@dimen/image_width"
-    android:layout_height="@dimen/image_height"
-    android:adjustViewBounds="true"
-    android:layout_gravity="start"
-    android:scaleType="centerCrop"/>
+    android:layout_height="@dimen/image_height"/>
 
 </merge>

@@ -1,6 +1,6 @@
 <resources>
 
-  <color name="photo_placeholder">#ccc</color>
+  <color name="photo_placeholder">#cccccc</color>
 
   <color name="gray_700">#616161</color>
   <color name="gray_800">#424242</color>

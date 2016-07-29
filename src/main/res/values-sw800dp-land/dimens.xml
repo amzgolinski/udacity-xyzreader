@@ -1,20 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-  <!-- image -->
   <dimen name="image_width">125dp</dimen>
   <dimen name="image_height">125dp</dimen>
 
   <!-- article -->
-  <dimen name="article_app_bar_height">425dp</dimen>
+  <dimen name="article_app_bar_height">400dp</dimen>
   <dimen name="article_text_size">24dp</dimen>
   <dimen name="article_title_text_size">40sp</dimen>
   <dimen name="article_title_padding_bottom">4dp</dimen>
-  <dimen name="article_title_padding_top">16dp</dimen>
+  <dimen name="article_title_padding_top">8dp</dimen>
 
   <!-- list entry -->
   <dimen name="list_entry_height">150dp</dimen>
-  <dimen name="list_entry_title_size">32sp</dimen>
-  <dimen name="list_entry_subtitle_size">18sp</dimen>
+  <dimen name="list_entry_title_size">30sp</dimen>
+  <dimen name="list_entry_subtitle_size">24sp</dimen>
   <dimen name="list_entry_title_padding">6dp</dimen>
 
 </resources>

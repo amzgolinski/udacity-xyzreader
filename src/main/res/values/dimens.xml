@@ -3,27 +3,26 @@
 
   <dimen name="app_bar_elevation">4dp</dimen>
 
+  <dimen name="logo_padding_start">72dp</dimen>
 
   <!-- FAB -->
   <dimen name="fab_pressed_elevation_z">12dp</dimen>
   <dimen name="fab_elevation">6dp</dimen>
   <dimen name="fab_margin">16dp</dimen>
 
-  <dimen name="byline_margin">4dp</dimen>
-
+  <!-- list -->
+  <dimen name="list_side_margin">4dp</dimen>
+  <dimen name="list_padding_top">56dp</dimen>
+  <dimen name="list_toolbar_side_margin">0dp</dimen>
   <dimen name="list_app_bar_height">56dp</dimen>
   <dimen name="list_item_margin">4dp</dimen>
   <dimen name="list_item_horiz_padding">16dp</dimen>
   <dimen name="list_item_vert_padding">16dp</dimen>
 
-
-  <!-- list -->
-  <dimen name="list_side_margin">4dp</dimen>
-  <dimen name="list_toolbar_side_margin">0dp</dimen>
-
   <!-- image -->
   <dimen name="image_height">75dp</dimen>
   <dimen name="image_width">75dp</dimen>
+  <dimen name="image_margin_start">4dp</dimen>
 
   <!-- article -->
   <dimen name="article_app_bar_height">325dp</dimen>
@@ -36,12 +35,14 @@
   <dimen name="article_text_bottom_margin">32dp</dimen>
   <dimen name="article_inner_horiz_margin">16dp</dimen>
   <dimen name="article_inner_vert_margin">16dp</dimen>
+  <dimen name="article_byline_margin_end">4dp</dimen>
 
   <!-- list entry -->
   <dimen name="list_entry_height">150dp</dimen>
   <dimen name="list_entry_title_size">20sp</dimen>
-  <dimen name="list_entry_subtitle_size">16sp</dimen>
+  <dimen name="list_entry_subtitle_size">14sp</dimen>
   <dimen name="list_entry_title_padding">6dp</dimen>
   <dimen name="list_entry_margin_bottom">4dp</dimen>
+  <dimen name="list_entry_margin_start">4dp</dimen>
 
 </resources>

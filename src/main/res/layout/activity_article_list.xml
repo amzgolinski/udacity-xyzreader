@@ -12,13 +12,9 @@
 
     <android.support.v7.widget.RecyclerView
       android:id="@+id/recycler_view"
+      style="@style/list"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      android:clipToPadding="false"
-      android:paddingLeft="@dimen/list_side_margin"
-      android:paddingRight="@dimen/list_side_margin"
-      android:paddingTop="56dp"
-      android:scrollbarStyle="outsideOverlay"
       app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
   </android.support.v4.widget.SwipeRefreshLayout>
@@ -44,7 +40,8 @@
         android:layout_height="match_parent"
         android:contentDescription="@string/app_name"
         android:gravity="center"
-        android:paddingStart="72dp"
+        android:paddingStart="@dimen/logo_padding_start"
+        android:paddingEnd="@dimen/logo_padding_start"
         android:src="@drawable/logo"/>
 
     </android.support.v7.widget.Toolbar>

@@ -17,13 +17,10 @@
 
     <ImageView
       android:id="@+id/thumbnail"
+      style="@style/image"
       android:transitionName="image"
       android:layout_width="@dimen/image_height"
-      android:layout_height="@dimen/image_width"
-      android:adjustViewBounds="true"
-      android:layout_gravity="start"
-      android:background="@android:color/black"
-      android:scaleType="centerCrop"/>
+      android:layout_height="@dimen/image_width"/>
 
   </FrameLayout>
 
@@ -58,7 +55,5 @@
         android:text="July 4, 1776"/>
 
   </RelativeLayout>
-
-
 
 </LinearLayout>
